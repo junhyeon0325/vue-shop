@@ -1,12 +1,22 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/test">Api</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div>
+    <HeaderLayout />
+    <router-view />
+    <FooterLayout />
+  </div>
 </template>
-
+<script>
+import HeaderLayout from "./layouts/HeaderLayout.vue";
+import FooterLayout from "./layouts/FooterLayout.vue";
+export default {
+  components: { HeaderLayout, FooterLayout },
+  computed: {
+    user() {
+      return null; // this.$store.state.user;
+    },
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -16,16 +26,16 @@
   color: #2c3e50;
 }
 
-nav {
+#nav {
   padding: 30px;
 }
 
-nav a {
+#nav a {
   font-weight: bold;
   color: #2c3e50;
 }
 
-nav a.router-link-exact-active {
+#nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>

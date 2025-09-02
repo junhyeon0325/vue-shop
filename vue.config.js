@@ -9,6 +9,14 @@ module.exports = defineConfig({
         target,
         changeOrigin: true,
       },
+      "^/upload": {
+        target,
+        changeOrigin: true,
+      },
+      "^/download": {
+        target,
+        changeOrigin: true,
+      },
     },
   },
 });
