@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Soldout</a>
@@ -54,4 +54,14 @@
       </div>
     </div>
   </nav>
-</template> -->
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      user: { eamil: "" },
+    };
+  },
+};
+</script>

@@ -1,17 +1,24 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import ApiTest from "../views/ApiTest.vue";
+// import HomeView from "../views/HomeView.vue";
+import SalesList from "../views/SalesList.vue";
+import ProductDetail from "../views/ProductDetail.vue";
+import ProductList from "../views/ProductList.vue";
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    name: "ProductList",
+    component: ProductList,
   },
   {
-    path: "/test",
-    name: "ApiTest",
-    component: ApiTest,
+    path: "/sales",
+    name: "SalesList",
+    component: SalesList,
+  },
+  {
+    path: "/detail",
+    name: "ProductDetail",
+    component: ProductDetail,
   },
   {
     path: "/about",
