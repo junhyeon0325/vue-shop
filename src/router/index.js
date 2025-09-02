@@ -9,7 +9,7 @@ const routes = [
     component: HomeView,
   },
   {
-    path: "/api",
+    path: "/test",
     name: "ApiTest",
     component: ApiTest,
   },
