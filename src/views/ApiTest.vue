@@ -38,7 +38,7 @@ export default {
   methods: {
     getFileInfo(e) {
       console.log(e);
-      const file_name = e.target.files[0].name;
+      const file_name = e.target.files[0].name; // File {name:'레드향.jpa', modified...}
       console.log(file_name);
       const file = e.target.files[0]; // Stream -> text 변환
       console.log(file);
@@ -49,7 +49,8 @@ export default {
         // base64txt 라는걸 indexof가 그단어를 찾아줌 거기서 8번째까지 짤라가지고(slice)그거를 log에 출력
         const data = base64Txt.slice(base64Txt.indexOf(";base64") + 8);
         axios //
-          .post("/upload/" + file_name, { param: data })
+          .post("/upload/" + file_name, { param: data }) // get요청 용량이 엄청 작아서 post로 해야함
+          // 이게 upload하면서 호출하는거임
           .then((result) => console.log(result));
       }; // 이벤트핸들러 on무슨속성은 이벤트와 관련있음
       fr.readAsDataURL(file);
