@@ -164,20 +164,41 @@ export default {
     };
   },
   methods: {
-    getCurrencyFormat() {
-      return "";
+    calculatePrice(qty) {
+      this.total += qty;
+      if (this.total < 0) {
+        this.total = 0;
+      }
+    },
+    getCurrencyFormat(price) {
+      // krw
+      const krwFormatter = new Intl.NumberFormat("ko-KR", {
+        style: "currency",
+        currency: "KRW", // 어느나라 통화
+      });
+      return krwFormatter.format(price);
     },
   },
   created() {
     // console.log(this.$route.query.product_id);
     this.productId = this.$route.query.product_id;
+
+    // 제품상세설명.
     axios({
       method: "post",
       url: "/api/productDetail",
       data: { param: [this.productId] },
     }).then((result) => {
-      console.log(result);
-      this.productDetail = result.data;
+      this.productDetail = result.data[0];
+    });
+
+    //제품이미지들.
+    axios({
+      method: "post",
+      url: "/api/productMainImage",
+      data: { param: [this.productId] },
+    }).then((result) => {
+      this.productImage = result.data;
     });
   },
 };
