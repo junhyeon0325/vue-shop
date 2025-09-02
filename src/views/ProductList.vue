@@ -71,6 +71,15 @@ export default {
       productList: [], // 상품목록 배열.
     };
   },
+  methods: {
+    goToDetail(product_id) {
+      // 동적으로 페이지 이동하고 싶으면 요렇게써라
+      this.$router.push({
+        name: "ProductDetail",
+        query: { product_id: product_id },
+      }); // /detail요렇게 path써도되고 ProductDetail 요렇게 name으로 써도 됨
+    },
+  },
   created() {
     axios({ method: "post", url: "/api/productList", data: {} }) //
       .then((result) => {
